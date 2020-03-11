@@ -1,0 +1,938 @@
+<template>
+  <!-- Page, data-name contains page name which can be used in callbacks -->
+  <div class="page page-gray" data-name="home">
+    <!-- Top Navbar -->
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="left">
+          <a href="#" class="link icon-only panel-open" data-panel="left">
+            <i class="icon f7-icons ios-only">menu</i>
+            <i class="icon material-icons md-only">menu</i>
+          </a>
+        </div>
+        <div class="title sliding">Dashboard</div>
+        <div class="right">
+          <!-- Link to enable searchbar -->
+          <a
+            class="link icon-only searchbar-enable"
+            data-searchbar=".searchbar-demo"
+          >
+            <i class="icon f7-icons ios-only">search</i>
+            <i class="icon material-icons md-only">search</i>
+          </a>
+          <!-- Link to enable sidebar product filters -->
+          <a href="#" class="link icon-only panel-open" data-panel="right">
+            <i class="icon f7-icons ios-only">more_vert</i>
+            <i class="icon material-icons md-only">more_vert</i>
+          </a>
+        </div>
+        <!-- Searchbar is a direct child of "navbar-inner" -->
+        <form
+          data-search-container=".search-list"
+          class="searchbar searchbar-expandable searchbar-demo searchbar-init"
+        >
+          <div class="searchbar-inner">
+            <div class="searchbar-input-wrap">
+              <input type="search" placeholder="Search" />
+              <i class="searchbar-icon"></i>
+              <span class="input-clear-button"></span>
+            </div>
+            <span class="searchbar-disable-button">Cancel</span>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- Scrollable page content-->
+    <div class="page-content pb-4">
+      <h2 class="px-3 pt-3 m-0 text-secondary">Customers</h2>
+      <div class=" row no-gap">
+        <!-- Each "cell" has col-[width in percents] class -->
+        <div class="desktop-25 col-100">
+          <div class="card elevation-3">
+            <div class="card-content p-2 p-xl-3 row">
+              <div class="col">
+                <h1 class="m-0 text-color-blue">49</h1>
+                <p class="m-0 font-weight-bold">Today</p>
+              </div>
+              <div class="col">
+                <div
+                  class="gauge gauge-init"
+                  data-type="circle"
+                  data-value="0.44"
+                  data-value-text="44%"
+                  data-value-text-color="#2196f3"
+                  data-border-color="#2196f3"
+                  data-border-width="30"
+                  data-label-text="UP"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="desktop-25 col-100">
+          <div class="card elevation-3">
+            <div class="card-content p-2 p-xl-3 row">
+              <div class="col">
+                <h1 class="m-0 text-color-blue">371</h1>
+                <p class="m-0 font-weight-bold">This Week</p>
+              </div>
+              <div class="col">
+                <div
+                  class="gauge gauge-init"
+                  data-type="circle"
+                  data-value="0.25"
+                  data-value-text="25%"
+                  data-value-text-color="#2196f3"
+                  data-border-color="#2196f3"
+                  data-border-width="30"
+                  data-label-text="UP"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="desktop-25 col-100">
+          <div class="card elevation-3">
+            <div class="card-content p-2 p-xl-3 row">
+              <div class="col">
+                <h1 class="m-0 text-color-blue">2,249</h1>
+                <p class="m-0 font-weight-bold">This Month</p>
+              </div>
+              <div class="col">
+                <div
+                  class="gauge gauge-init"
+                  data-type="circle"
+                  data-value="0.88"
+                  data-value-text="88%"
+                  data-value-text-color="#2196f3"
+                  data-border-color="#2196f3"
+                  data-border-width="30"
+                  data-label-text="UP"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="desktop-25 col-100">
+          <div class="card elevation-3">
+            <div class="card-content p-2 p-xl-3 row">
+              <div class="col">
+                <h1 class="m-0 text-color-blue">16,249</h1>
+                <p class="m-0 font-weight-bold">This Year</p>
+              </div>
+              <div class="col">
+                <div
+                  class="gauge gauge-init"
+                  data-type="circle"
+                  data-value="0.76"
+                  data-value-text="76%"
+                  data-value-text-color="#2196f3"
+                  data-border-color="#2196f3"
+                  data-border-width="30"
+                  data-label-text="UP"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="px-3 pt-3 m-0 text-secondary">Stats</h2>
+      <div class="row no-gap">
+        <div class="desktop-33 col-100">
+          <div class="card elevation-3">
+            <div class="card-content">
+              <div class="toolbar tabbar">
+                <div class="toolbar-inner">
+                  <a href="#tab-1" class="tab-link tab-link-active">Week 1</a>
+                  <a href="#tab-2" class="tab-link">Week 2</a>
+                  <a href="#tab-3" class="tab-link">Week 3</a>
+                </div>
+              </div>
+              <div class="tabs-swipeable-wrap">
+                <div class="tabs">
+                  <div id="tab-1" class="tab tab-active pt-0">
+                    <div class="list">
+                      <ul>
+                        <li>
+                          <a href="#" class="item-link item-content">
+                            <div class="item-media">
+                              <i class="material-icons">assignment_ind</i>
+                            </div>
+                            <div class="item-inner">
+                              <div class="item-title">Carlo Fontanos</div>
+                              <div class="item-after">88%</div>
+                            </div>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#" class="item-link item-content">
+                            <div class="item-media">
+                              <i class="material-icons">assignment_ind</i>
+                            </div>
+                            <div class="item-inner">
+                              <div class="item-title">Ivan Petrov</div>
+                              <div class="item-after">82%</div>
+                            </div>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#" class="item-link item-content">
+                            <div class="item-media">
+                              <i class="material-icons">assignment_ind</i>
+                            </div>
+                            <div class="item-inner">
+                              <div class="item-title">Andre Mclenesh</div>
+                              <div class="item-after">78%</div>
+                            </div>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#" class="item-link item-content">
+                            <div class="item-media">
+                              <i class="material-icons">assignment_ind</i>
+                            </div>
+                            <div class="item-inner">
+                              <div class="item-title">Greg Adamson</div>
+                              <div class="item-after">65%</div>
+                            </div>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#" class="item-link item-content">
+                            <div class="item-media">
+                              <i class="material-icons">assignment_ind</i>
+                            </div>
+                            <div class="item-inner">
+                              <div class="item-title">Ben Madison</div>
+                              <div class="item-after">64%</div>
+                            </div>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#" class="item-link item-content">
+                            <div class="item-media">
+                              <i class="material-icons">assignment_ind</i>
+                            </div>
+                            <div class="item-inner">
+                              <div class="item-title">James Galiger</div>
+                              <div class="item-after">52%</div>
+                            </div>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div id="tab-2" class="tab pt-0">
+                    <div class="list">
+                      <ul>
+                        <li>
+                          <a href="#" class="item-link item-content">
+                            <div class="item-media">
+                              <i class="material-icons">assignment_ind</i>
+                            </div>
+                            <div class="item-inner">
+                              <div class="item-title">Carlo Fontanos</div>
+                              <div class="item-after">95%</div>
+                            </div>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#" class="item-link item-content">
+                            <div class="item-media">
+                              <i class="material-icons">assignment_ind</i>
+                            </div>
+                            <div class="item-inner">
+                              <div class="item-title">Greg Adamson</div>
+                              <div class="item-after">82%</div>
+                            </div>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#" class="item-link item-content">
+                            <div class="item-media">
+                              <i class="material-icons">assignment_ind</i>
+                            </div>
+                            <div class="item-inner">
+                              <div class="item-title">Ben Madison</div>
+                              <div class="item-after">68%</div>
+                            </div>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#" class="item-link item-content">
+                            <div class="item-media">
+                              <i class="material-icons">assignment_ind</i>
+                            </div>
+                            <div class="item-inner">
+                              <div class="item-title">Ivan Petrov</div>
+                              <div class="item-after">52%</div>
+                            </div>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#" class="item-link item-content">
+                            <div class="item-media">
+                              <i class="material-icons">assignment_ind</i>
+                            </div>
+                            <div class="item-inner">
+                              <div class="item-title">Andre Mclenesh</div>
+                              <div class="item-after">46%</div>
+                            </div>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#" class="item-link item-content">
+                            <div class="item-media">
+                              <i class="material-icons">assignment_ind</i>
+                            </div>
+                            <div class="item-inner">
+                              <div class="item-title">James Galiger</div>
+                              <div class="item-after">30%</div>
+                            </div>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div id="tab-3" class="tab pt-0">
+                    <div class="list">
+                      <ul>
+                        <li>
+                          <a href="#" class="item-link item-content">
+                            <div class="item-media">
+                              <i class="material-icons">assignment_ind</i>
+                            </div>
+                            <div class="item-inner">
+                              <div class="item-title">Andre Mclenesh</div>
+                              <div class="item-after">75%</div>
+                            </div>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#" class="item-link item-content">
+                            <div class="item-media">
+                              <i class="material-icons">assignment_ind</i>
+                            </div>
+                            <div class="item-inner">
+                              <div class="item-title">Ben Madison</div>
+                              <div class="item-after">74%</div>
+                            </div>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#" class="item-link item-content">
+                            <div class="item-media">
+                              <i class="material-icons">assignment_ind</i>
+                            </div>
+                            <div class="item-inner">
+                              <div class="item-title">Carlo Fontanos</div>
+                              <div class="item-after">71%</div>
+                            </div>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#" class="item-link item-content">
+                            <div class="item-media">
+                              <i class="material-icons">assignment_ind</i>
+                            </div>
+                            <div class="item-inner">
+                              <div class="item-title">Greg Adamson</div>
+                              <div class="item-after">65%</div>
+                            </div>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#" class="item-link item-content">
+                            <div class="item-media">
+                              <i class="material-icons">assignment_ind</i>
+                            </div>
+                            <div class="item-inner">
+                              <div class="item-title">Ivan Petrov</div>
+                              <div class="item-after">64%</div>
+                            </div>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#" class="item-link item-content">
+                            <div class="item-media">
+                              <i class="material-icons">assignment_ind</i>
+                            </div>
+                            <div class="item-inner">
+                              <div class="item-title">James Galiger</div>
+                              <div class="item-after">42%</div>
+                            </div>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="desktop-33 col-100">
+          <div class="card elevation-3">
+            <div class="card-content">
+              <div class="block block-strong no-padding pb-3">
+                <div id="demo-calendar-inline-container"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="desktop-33 col-100">
+          <div class="card elevation-3">
+            <div class="card-content">
+              <div class="block p-0">
+                <div class="block block-strong text-align-center">
+                  <!-- we will init this gauge in JavaScript -->
+                  <div class="gauge demo-gauge"></div>
+                  <!-- buttons to change gauge value -->
+                  <p class="segmented segmented-raised">
+                    <a href="#" class="button" data-value="0">0%</a>
+                    <a href="#" class="button" data-value="25">25%</a>
+                    <a href="#" class="button" data-value="50">50%</a>
+                    <a href="#" class="button" data-value="75">75%</a>
+                    <a href="#" class="button" data-value="100">100%</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row no-gap">
+        <div class="desktop-65 col-100">
+          <h2 class="px-3 pt-3 m-0 text-secondary">Recent Orders</h2>
+          <div class="card data-table elevation-3">
+            <table>
+              <thead>
+                <tr>
+                  <th class="label-cell">Order # Of Purchase</th>
+                  <th class="label-cell">Date of Payment</th>
+                  <th class="label-cell">Status</th>
+                  <th class="label-cell">Total</th>
+                  <th class="label-cell">Privacy</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><a href="javascript:void(0)">#2525 - PAARTH SOIN</a></td>
+                  <td>Sep 3, 2018</td>
+                  <td class="">
+                    <span class="badge color-red">Cancelled</span>
+                  </td>
+                  <td class="numeric-cell">$10.00</td>
+                  <td>September 3, 2018 5:19 PM</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="javascript:void(0)">#2524 - Raghad Almarri</a>
+                  </td>
+                  <td>Sep 2, 2018</td>
+                  <td class="">
+                    <span class="badge color-green">Completed</span>
+                  </td>
+                  <td class="numeric-cell">$20.00</td>
+                  <td>September 2, 2018 3:56 PM</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="javascript:void(0)">#2523 - Gregory Kinsey</a>
+                  </td>
+                  <td>Sep 1, 2018</td>
+                  <td class="">
+                    <span class="badge color-orange">On Hold</span>
+                  </td>
+                  <td class="numeric-cell">$30.00</td>
+                  <td>September 1, 2018 10:55 AM</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="javascript:void(0)">#2521 - Rohit Chautmol</a>
+                  </td>
+                  <td>Aug 31, 2018</td>
+                  <td class="">
+                    <span class="badge color-green">Completed</span>
+                  </td>
+                  <td class="numeric-cell">$10.00</td>
+                  <td>August 31, 2018 12:43 PM</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="javascript:void(0)">#2512 - Horacio Xochitemol</a>
+                  </td>
+                  <td>Aug 28, 2018</td>
+                  <td class="">
+                    <span class="badge color-green">Completed</span>
+                  </td>
+                  <td class="numeric-cell">$5.00</td>
+                  <td>August 28, 2018 1:27 AM</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="javascript:void(0)">#2511 - varaprasad gajjala</a>
+                  </td>
+                  <td>Aug 26, 2018</td>
+                  <td class="">
+                    <span class="badge color-red">Cancelled</span>
+                  </td>
+                  <td class="numeric-cell">$10.00</td>
+                  <td>August 26, 2018 9:39 PM</td>
+                </tr>
+                <tr>
+                  <td><a href="javascript:void(0)">#2507 - John Burton</a></td>
+                  <td>Aug 17, 2018</td>
+                  <td class="">
+                    <span class="badge color-red">Cancelled</span>
+                  </td>
+                  <td class="numeric-cell">$5.00</td>
+                  <td>August 17, 2018 5:37 PM</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="javascript:void(0)">#2510 - Mircea Panaite</a>
+                  </td>
+                  <td>Aug 26, 2018</td>
+                  <td class="">
+                    <span class="badge color-green">Completed</span>
+                  </td>
+                  <td class="numeric-cell">$20.00</td>
+                  <td>August 26, 2018 1:21 AM</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="desktop-35 col-100">
+          <h2 class="px-3 pt-3 m-0 text-secondary">To Do</h2>
+          <div class="data-table data-table-init card">
+            <div class="card-header">
+              <!-- Table links/actions -->
+              <div class="data-table-links">
+                <a class="link">Add</a>
+                <a class="link">Remove</a>
+              </div>
+              <!-- Table actions -->
+              <div class="data-table-actions">
+                <a class="link icon-only">
+                  <i class="icon f7-icons ios-only">sort</i>
+                  <i class="icon material-icons md-only">sort</i>
+                </a>
+                <a class="link icon-only">
+                  <i class="icon f7-icons ios-only">more_vertical_round</i>
+                  <i class="icon material-icons md-only">more_vert</i>
+                </a>
+              </div>
+            </div>
+            <div class="card-content">
+              <table>
+                <thead>
+                  <tr>
+                    <th class="checkbox-cell">
+                      <label class="checkbox">
+                        <input type="checkbox" /> <i class="icon-checkbox"></i>
+                      </label>
+                    </th>
+                    <th class="label-cell mw-150">Task</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="checkbox-cell">
+                      <label class="checkbox">
+                        <input type="checkbox" /> <i class="icon-checkbox"></i>
+                      </label>
+                    </td>
+                    <td class="label-cell">Generate Reports</td>
+                    <td class="actions-cell">
+                      <a class="link icon-only">
+                        <i class="icon f7-icons ios-only">compose</i>
+                        <i class="icon material-icons md-only">edit</i>
+                      </a>
+                      <a class="link icon-only">
+                        <i class="icon f7-icons ios-only">trash</i>
+                        <i class="icon material-icons md-only">delete</i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="checkbox-cell">
+                      <label class="checkbox">
+                        <input type="checkbox" checked />
+                        <i class="icon-checkbox"></i>
+                      </label>
+                    </td>
+                    <td class="label-cell">Fix Header Bug</td>
+                    <td class="actions-cell">
+                      <a class="link icon-only">
+                        <i class="icon f7-icons ios-only">compose</i>
+                        <i class="icon material-icons md-only">edit</i>
+                      </a>
+                      <a class="link icon-only">
+                        <i class="icon f7-icons ios-only">trash</i>
+                        <i class="icon material-icons md-only">delete</i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="checkbox-cell">
+                      <label class="checkbox">
+                        <input type="checkbox" checked />
+                        <i class="icon-checkbox"></i>
+                      </label>
+                    </td>
+                    <td class="label-cell">Create Custom Menu</td>
+                    <td class="actions-cell">
+                      <a class="link icon-only">
+                        <i class="icon f7-icons ios-only">compose</i>
+                        <i class="icon material-icons md-only">edit</i>
+                      </a>
+                      <a class="link icon-only">
+                        <i class="icon f7-icons ios-only">trash</i>
+                        <i class="icon material-icons md-only">delete</i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="checkbox-cell">
+                      <label class="checkbox">
+                        <input type="checkbox" /> <i class="icon-checkbox"></i>
+                      </label>
+                    </td>
+                    <td class="label-cell">Add Exporter</td>
+                    <td class="actions-cell">
+                      <a class="link icon-only">
+                        <i class="icon f7-icons ios-only">compose</i>
+                        <i class="icon material-icons md-only">edit</i>
+                      </a>
+                      <a class="link icon-only">
+                        <i class="icon f7-icons ios-only">trash</i>
+                        <i class="icon material-icons md-only">delete</i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="checkbox-cell">
+                      <label class="checkbox">
+                        <input type="checkbox" /> <i class="icon-checkbox"></i>
+                      </label>
+                    </td>
+                    <td class="label-cell">Delete Old Records</td>
+                    <td class="actions-cell">
+                      <a class="link icon-only">
+                        <i class="icon f7-icons ios-only">compose</i>
+                        <i class="icon material-icons md-only">edit</i>
+                      </a>
+                      <a class="link icon-only">
+                        <i class="icon f7-icons ios-only">trash</i>
+                        <i class="icon material-icons md-only">delete</i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="checkbox-cell">
+                      <label class="checkbox">
+                        <input type="checkbox" checked />
+                        <i class="icon-checkbox"></i>
+                      </label>
+                    </td>
+                    <td class="label-cell">Improve Animation</td>
+                    <td class="actions-cell">
+                      <a class="link icon-only">
+                        <i class="icon f7-icons ios-only">compose</i>
+                        <i class="icon material-icons md-only">edit</i>
+                      </a>
+                      <a class="link icon-only">
+                        <i class="icon f7-icons ios-only">trash</i>
+                        <i class="icon material-icons md-only">delete</i>
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row no-gap">
+        <div class="desktop-33 col-100">
+          <h2 class="px-3 pt-3 m-0 text-secondary">Quick Settings</h2>
+          <div class="card elevation-3">
+            <div class="list simple-list">
+              <ul>
+                <li>
+                  <span class="text-truncate mw-200"
+                    >Enable Realtime Notifications</span
+                  >
+                  <label class="toggle toggle-init">
+                    <input type="checkbox" checked />
+                    <span class="toggle-icon"></span>
+                  </label>
+                </li>
+                <li>
+                  <span class="text-truncate mw-200"
+                    >Send Automatic Email Updates</span
+                  >
+                  <label class="toggle toggle-init color-green">
+                    <input type="checkbox" checked />
+                    <span class="toggle-icon"></span>
+                  </label>
+                </li>
+                <li>
+                  <span class="text-truncate mw-200"
+                    >Generate PDF Reports Daily</span
+                  >
+                  <label class="toggle toggle-init color-red">
+                    <input type="checkbox" checked />
+                    <span class="toggle-icon"></span>
+                  </label>
+                </li>
+                <li>
+                  <span class="text-truncate mw-200"
+                    >Enable Maintenance Mode</span
+                  >
+                  <label class="toggle toggle-init color-green">
+                    <input type="checkbox" />
+                    <span class="toggle-icon"></span>
+                  </label>
+                </li>
+                <li>
+                  <span class="text-truncate mw-200"
+                    >Show Privacy Policy Popup</span
+                  >
+                  <label class="toggle toggle-init disabled">
+                    <input type="checkbox" />
+                    <span class="toggle-icon"></span>
+                  </label>
+                </li>
+                <li>
+                  <span class="text-truncate mw-200">Enable Promo Codes</span>
+                  <label class="toggle toggle-init toggle-init color-pink">
+                    <input type="checkbox" checked disabled />
+                    <span class="toggle-icon"></span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="desktop-33 col-100">
+          <h2 class="px-3 pt-3 m-0 text-secondary">Project 101 Timeline</h2>
+          <div class="card elevation-3">
+            <div class="timeline my-0 py-4 timeline-sides">
+              <div class="timeline-item">
+                <div class="timeline-item-date bg-transparent">
+                  21 <small>DEC</small>
+                </div>
+                <div class="timeline-item-divider"></div>
+                <div class="timeline-item-content">
+                  <div
+                    class="timeline-item-inner bg-color-blue text-color-white"
+                  >
+                    Design Phase
+                  </div>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-item-date bg-transparent">
+                  22 <small>DEC</small>
+                </div>
+                <div class="timeline-item-divider"></div>
+                <div class="timeline-item-content">
+                  <div
+                    class="timeline-item-inner bg-color-orange text-color-white"
+                  >
+                    Development Phase
+                  </div>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-item-date bg-transparent">
+                  28 <small>DEC</small>
+                </div>
+                <div class="timeline-item-divider"></div>
+                <div class="timeline-item-content">
+                  <div
+                    class="timeline-item-inner bg-color-pink text-color-white"
+                  >
+                    Debugging Phase
+                  </div>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-item-date bg-transparent">
+                  30 <small>DEC</small>
+                </div>
+                <div class="timeline-item-divider"></div>
+                <div class="timeline-item-content">
+                  <div
+                    class="timeline-item-inner bg-color-green text-color-white"
+                  >
+                    Client Presentation and Critics
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="desktop-33 col-100">
+          <h2 class="px-3 pt-3 m-0 text-secondary">Device Settings</h2>
+          <div class="card elevation-3 p-4">
+            <div class="text-color-gray pb-2">CPU Instance Speed</div>
+            <div class="range-slider range-slider-init">
+              <input type="range" min="0" max="100" step="1" value="10" />
+            </div>
+
+            <div class="text-color-gray pt-3 pb-2">Max Database Instances</div>
+            <div
+              class="range-slider range-slider-init color-orange"
+              data-label="true"
+            >
+              <input type="range" min="0" max="10" step="1" value="5" />
+            </div>
+
+            <div class="text-color-gray pt-3 pb-2">RAM Usage Range</div>
+            <div
+              class="range-slider range-slider-init color-green"
+              @range:change="onPriceChange"
+              data-label="true"
+              data-dual="true"
+              data-min="0"
+              data-max="8"
+              data-step="1"
+              data-value-left="2"
+              data-value-right="4"
+            ></div>
+
+            <div class="text-color-gray pt-3 pb-2">Automatic Fail Over On</div>
+            <div
+              class="range-slider range-slider-init color-pink"
+              data-label="true"
+            >
+              <input type="range" min="0" max="100" step="1" value="50" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+ 
+  return {
+    data() {
+      return {
+        priceMin: 200,
+        priceMax: 400
+      };
+    },
+    methods: {
+      onPriceChange: function(e, range) {
+        this.$setState({
+          priceMin: range.value[0],
+          priceMax: range.value[1]
+        });
+      }
+    },
+    on: {
+      pageInit: function(e, page) {
+        var self = this;
+        var today = new Date();
+        var app = self.$app;
+        var $ = self.$;
+
+        /* Stats First Card */
+        self.demoGauge = app.gauge.create({
+          el: ".demo-gauge",
+          type: "circle",
+          value: 0.5,
+          size: 250,
+          borderColor: "#2196f3",
+          borderWidth: 10,
+          valueText: "50%",
+          valueFontSize: 41,
+          valueTextColor: "#2196f3",
+          labelText: "amount of something"
+        });
+
+        // Change demo gauge on button click
+        $$(".button").on("click", function() {
+          var value = $$(this).attr("data-value");
+          self.demoGauge.update({
+            value: value / 100,
+            valueText: value + "%"
+          });
+        });
+
+        /* Calendar Dashboard */
+        var monthNames = [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December"
+        ];
+        self.calendarInline = app.calendar.create({
+          containerEl: "#demo-calendar-inline-container",
+          value: [new Date()],
+          renderToolbar: function() {
+            return (
+              '<div class="toolbar calendar-custom-toolbar no-shadow">' +
+              '<div class="toolbar-inner">' +
+              '<div class="left">' +
+              '<a href="#" class="link icon-only text-color-black">' +
+              '<i class="icon f7-icons ios-only">chevron_left</i>' +
+              '<i class="icon material-icons md-only">arrow_back</i>' +
+              "</a>" +
+              "</div>" +
+              '<div class="center"></div>' +
+              '<div class="right">' +
+              '<a href="#" class="link icon-only text-color-black">' +
+              '<i class="icon f7-icons ios-only">chevron_right</i>' +
+              '<i class="icon material-icons md-only">arrow_forward</i>' +
+              "</a>" +
+              "</div>" +
+              "</div>" +
+              "</div>"
+            );
+          },
+          on: {
+            init: function(c) {
+              $(".calendar-custom-toolbar .center").text(
+                monthNames[c.currentMonth] + ", " + c.currentYear
+              );
+              $(".calendar-custom-toolbar .left .link").on("click", function() {
+                self.calendarInline.prevMonth();
+              });
+              $(".calendar-custom-toolbar .right .link").on(
+                "click",
+                function() {
+                  self.calendarInline.nextMonth();
+                }
+              );
+            },
+            monthYearChangeStart: function(c) {
+              $(".calendar-custom-toolbar .center").text(
+                monthNames[c.currentMonth] + ", " + c.currentYear
+              );
+            }
+          }
+        });
+      }
+    }
+  };
+</script>

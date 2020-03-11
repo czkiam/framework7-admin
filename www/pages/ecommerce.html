@@ -1,0 +1,149 @@
+<template>
+  <div class="page page-gray products" data-name="products">
+    <div class="navbar">
+      <div class="navbar-inner sliding">
+        <div class="left">
+          <a href="#" class="link back">
+            <i class="icon icon-back"></i>
+            <span class="ios-only">Back</span>
+          </a>
+        </div>
+        <div class="title">Ecommerce</div>
+        <div class="right">
+          <!-- Link to enable searchbar -->
+          <a
+            class="link icon-only searchbar-enable"
+            data-searchbar=".searchbar-demo"
+          >
+            <i class="icon f7-icons ios-only">search</i>
+            <i class="icon material-icons md-only">search</i>
+          </a>
+        </div>
+        <!-- Searchbar is a direct child of "navbar-inner" -->
+        <form
+          data-search-container=".search-list"
+          class="searchbar searchbar-expandable searchbar-demo searchbar-init"
+        >
+          <div class="searchbar-inner">
+            <div class="searchbar-input-wrap">
+              <input type="search" placeholder="Search" />
+              <i class="searchbar-icon"></i>
+              <span class="input-clear-button"></span>
+            </div>
+            <span class="searchbar-disable-button">Cancel</span>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      data-infinite-distance="50"
+      class="page-content infinite-scroll-content"
+      @infinite="loadMore"
+    >
+      <div class="searchbar-backdrop"></div>
+      <div class="list searchbar-not-found">
+        <ul>
+          <li>Nothing found</li>
+        </ul>
+      </div>
+      <div class="p-xl-3 p-lg-3 p-0 row search-list searchbar-found">
+        {{#each items}}
+        <div class="desktop-20 tablet-33 col-50" key="{{@index}}">
+          <div class="card no-margin margin-top">
+            <a href="/ecommerce/{{this.itemId}}" class="card-header link p-0">
+              <img src="{{this.mediumImage}}" width="100%" />
+            </a>
+            <div class="card-content p-xl-3 p-lg-3 p-2 f-sm-14">
+              <p class="m-0 text-truncate">{{this.name}}</p>
+            </div>
+            <div class="card-footer f-16 f-sm-14">
+              <div>
+                <a href="#" class="text-danger">
+                  <i class="icon f7-icons ios-only">heart</i>
+                  <i class="icon material-icons md-only">favorite_border</i>
+                </a>
+              </div>
+              <div class="font-weight-bold">
+                ${{this.salePrice}}
+              </div>
+            </div>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+      {{#if hasMoreItems}}
+      <div class="preloader infinite-scroll-preloader"></div>
+      {{/if}}
+    </div>
+  </div>
+</template>
+<script>
+  return {
+    data: function() {
+      return {
+        allowInfinite: true,
+        hasMoreItems: true,
+        lastItem: 0,
+        limit: 20,
+        items: []
+      };
+    },
+    on: {
+      pageInit: function() {
+        var self = this;
+        self.loadMore(); /* Initial load */
+      }
+    },
+    methods: {
+      loadMore: function() {
+        var self = this;
+        var $ = self.$$;
+        var offset =
+          self.lastItem == 0
+            ? 1
+            : self.lastItem +
+              self.limit; /* Start offset with 1 on first load */
+        if (!self.allowInfinite) return;
+        self.allowInfinite = false;
+
+        app.request.post(
+          app.data.walmartAPI,
+          {
+            query: "shoes",
+            limit: self.limit,
+            offset: offset,
+            sort: "relevance",
+            type: "search"
+          },
+          response => {
+            if (response) {
+              var response = JSON.parse(response);
+              if (self.lastItem >= response.totalResults) {
+                self.$setState({
+                  hasMoreItems: false
+                });
+                return;
+              }
+
+              response.items.forEach(function(item, index) {
+                self.items.push(item);
+              });
+
+              self.allowInfinite = true;
+
+              self.$setState({
+                lastItem:
+                  self.lastItem + self.limit /* Set new last item count */,
+                items: self.items /* Display new items */
+              });
+            } else {
+              /* Try again if we got an empty response */
+              self.allowInfinite = true;
+              self.loadMore();
+            }
+          }
+        );
+      }
+    }
+  };
+</script>

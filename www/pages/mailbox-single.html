@@ -1,0 +1,172 @@
+<template>	
+	<div class="page" data-name="chat">
+		<div class="navbar">
+			<div class="navbar-inner sliding">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only">Back</span>
+					</a>
+				</div>
+				<div class="title">{{getData('subject')}}</div>
+				<div class="right">
+					<!-- Link to enable searchbar -->
+					<a class="link icon-only" @click="openConfirm">
+						<i class="icon f7-icons ios-only">trash</i>
+						<i class="icon material-icons md-only">delete</i>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="page-content">
+			<div class="px-3 mt-3">
+				<h2 class="font-weight-bold mb-2">{{getData('subject')}}</h2>
+				<span class="badge color-gray">Inbox</span>
+				<span class="badge color-green">Saved</span>
+				<span class="badge color-orange">Important</span>
+			</div>
+			
+			<div class="list media-list accordion-list">
+				<ul>
+					<li class="accordion-item">
+						<a href="#" class="item-link item-content">
+							<div class="item-media"><img src="https://randomuser.me/api/portraits/men/{{this.$route.params.itemId}}.jpg" class="rounded-circle" width="70" /></div>
+							<div class="item-inner">
+								<div class="item-title-row">
+									<div class="item-title font-weight-bold">{{getData('name')}}</div>
+									<div class="item-after text-color-blue font-weight-bold">17:14</div>
+								</div>
+								<div class="item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis tellus ut turpis condimentum, ut dignissim lacus tincidunt. Cras dolor metus, ultrices condimentum sodales sit amet, pharetra sodales eros. Phasellus vel felis tellus. Mauris rutrum ligula nec dapibus feugiat. In vel dui laoreet, commodo augue id, pulvinar lacus.</div>
+							</div>
+						</a>
+						<div class="accordion-item-content">
+							<div class="block">
+								<p>Lorem ipsum dolor sit amet, et malesuada aliquam enim rutrum justo magna, purus nulla, natoque et commodo tellus ut tellus porttitor. Sed dui a odio facilisi nullam. Nulla lobortis non ut pulvinar lectus. Luctus felis nam urna, scelerisque integer magnis nisl dui, consequat nullam gravida, nibh imperdiet quisque odio in, ut pellentesque maecenas rhoncus urna sed ac. Et nunc est, lacus augue et, commodo odio wisi aliquam libero, et eu maecenas id, quis turpis eros. Vitae ultricies, lacus a sed sit mauris suspendisse nec.</p>
+							</div>
+						</div>
+					</li>
+					<li class="accordion-item">
+						<a href="#" class="item-link item-content">
+							<div class="item-media"><img src="http://carlofontanos.com/wp-content/themes/carlo-fontanos/img/carlofontanos.jpg" class="rounded-circle" width="70" /></div>
+							<div class="item-inner">
+								<div class="item-title-row">
+									<div class="item-title font-weight-bold">Carlo Fontanos</div>
+									<div class="item-after text-color-blue font-weight-bold">17:14</div>
+								</div>
+								<div class="item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis tellus ut turpis condimentum, ut dignissim lacus tincidunt. Cras dolor metus, ultrices condimentum sodales sit amet, pharetra sodales eros. Phasellus vel felis tellus. Mauris rutrum ligula nec dapibus feugiat. In vel dui laoreet, commodo augue id, pulvinar lacus.</div>
+							</div>
+						</a>
+						<div class="accordion-item-content">
+							<div class="block">
+								<p>Lorem ipsum dolor sit amet, et malesuada aliquam enim rutrum justo magna, purus nulla, natoque et commodo tellus ut tellus porttitor. Sed dui a odio facilisi nullam. Nulla lobortis non ut pulvinar lectus. Luctus felis nam urna, scelerisque integer magnis nisl dui, consequat nullam gravida, nibh imperdiet quisque odio in, ut pellentesque maecenas rhoncus urna sed ac. Et nunc est, lacus augue et, commodo odio wisi aliquam libero, et eu maecenas id, quis turpis eros. Vitae ultricies, lacus a sed sit mauris suspendisse nec.</p>
+							</div>
+						</div>
+					</li>
+					<li class="accordion-item">
+						<a href="#" class="item-link item-content">
+							<div class="item-media"><img src="https://randomuser.me/api/portraits/men/{{this.$route.params.itemId}}.jpg" class="rounded-circle" width="70" /></div>
+							<div class="item-inner">
+								<div class="item-title-row">
+									<div class="item-title font-weight-bold">{{getData('name')}}</div>
+									<div class="item-after text-color-blue font-weight-bold">17:14</div>
+								</div>
+								<div class="item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis tellus ut turpis condimentum, ut dignissim lacus tincidunt. Cras dolor metus, ultrices condimentum sodales sit amet, pharetra sodales eros. Phasellus vel felis tellus. Mauris rutrum ligula nec dapibus feugiat. In vel dui laoreet, commodo augue id, pulvinar lacus.</div>
+							</div>
+						</a>
+						<div class="accordion-item-content">
+							<div class="block">
+								<p>Lorem ipsum dolor sit amet, et malesuada aliquam enim rutrum justo magna, purus nulla, natoque et commodo tellus ut tellus porttitor. Sed dui a odio facilisi nullam. Nulla lobortis non ut pulvinar lectus. Luctus felis nam urna, scelerisque integer magnis nisl dui, consequat nullam gravida, nibh imperdiet quisque odio in, ut pellentesque maecenas rhoncus urna sed ac. Et nunc est, lacus augue et, commodo odio wisi aliquam libero, et eu maecenas id, quis turpis eros. Vitae ultricies, lacus a sed sit mauris suspendisse nec.</p>
+							</div>
+						</div>
+					</li>
+					<li class="accordion-item accordion-item-opened">
+						<a href="#" class="item-link item-content">
+							<div class="item-media"><img src="http://carlofontanos.com/wp-content/themes/carlo-fontanos/img/carlofontanos.jpg" class="rounded-circle" width="70" /></div>
+							<div class="item-inner">
+								<div class="item-title-row">
+									<div class="item-title font-weight-bold">Carlo Fontanos</div>
+									<div class="item-after text-color-blue font-weight-bold">17:14</div>
+								</div>
+								<div class="item-text">
+									to me <br />
+									14 hour ago
+								</div>
+							</div>
+						</a>
+						<div class="accordion-item-content">
+							<div class="block block-strong">
+								<p>Lorem ipsum dolor sit amet, et malesuada aliquam enim rutrum justo magna, purus nulla, natoque et commodo tellus ut tellus porttitor. Sed dui a odio facilisi nullam. Nulla lobortis non ut pulvinar lectus. Luctus felis nam urna, scelerisque integer magnis nisl dui, consequat nullam gravida, nibh imperdiet quisque odio in, ut pellentesque maecenas rhoncus urna sed ac. Et nunc est, lacus augue et, commodo odio wisi aliquam libero, et eu maecenas id, quis turpis eros. Vitae ultricies, lacus a sed sit mauris suspendisse nec.</p>
+								<p>Vel etiam consectetuer duis vitae auctor porttitor, nunc euismod. Sed ac gravida pulvinar et, turpis urna, blandit pharetra senectus, aliquet ornare est convallis, sapien sociosqu vivamus lectus. Elit elit, lectus tincidunt, eget luctus curabitur vel morbi, facilisi et eius wisi quis, ut quisque integer eget ligula. Ante ante dolor, aenean quisque lacinia dictum, enim leo non nibh natoque eros, erat suscipit ut placerat, in fermentum. Bibendum quam, lectus tempor lorem suspendisse erat. Nulla ut ut, sollicitudin vestibulum morbi odio dui id, accumsan dolor sollicitudin sit. Urna ultrices dignissim porttitor diam, bibendum vel, mauris porta semper suspendisse, eu per mauris ac. Dui ipsum lacus, varius fringilla lectus orci pellentesque diam. Adipiscing eligendi fringilla sagittis in. Lacus eget, eleifend massa non non vivamus donec, integer aliquam turpis vitae lectus, ultricies vel, a sit nunc. </p>
+								<p>Molestie sed arcu nibh, metus vulputate arcu, augue vitae tortor id in in. In lorem amet arcu fames congue vestibulum, nec condimentum, ultrices eu hendrerit pellentesque quis. Tempus urna. Dignissim scelerisque elit quam augue. Risus in vestibulum nisl felis, vivamus eget arcu, sed lorem massa pede mollis. Velit lacus, eget molestie mollis metus laoreet vitae odio. Nam et blandit eros augue neque, nec integer curabitur tempus est. Quisque lectus, amet id rerum, phasellus commodo venenatis suspendisse ipsum vitae, feugiat et lorem eleifend ante, massa vel congue leo. Autem iaculis tortor at auctor, aliquam urna, nisl sem justo maecenas, dolor mauris justo. Non phasellus. Sed nulla sed tempus ut molestie.</p>
+								<p>Convallis sodales nullam at ac aliquam, molestie sollicitudin, ipsum sed, gravida urna et a. Nam nunc sollicitudin nunc aenean blandit. Est in fringilla, nec ultrices, dui non nonummy felis, a id eros eu, a pellentesque. Arcu ornare posuere, donec turpis adipiscing justo, ligula congue convallis. Nunc sed accumsan donec libero eu sem, ut accumsan lacus pede, pellentesque blandit aenean eu diam culpa sem. Mattis blandit elit et, vulputate purus scelerisque, fusce tortor cras urna nam, odio wisi non purus etiam pellentesque aliquam.</p>
+							</div>
+						</div>
+					</li>
+				</ul>
+				
+				<div class="row px-3 my-3">
+					<a href="#" class="col button button-outline">
+						<i class="icon f7-icons ios-only">reply</i>
+						<i class="icon material-icons md-only">reply</i> 
+						Reply
+					</a>
+					<a href="#" class="col button button-outline">
+						<i class="icon f7-icons ios-only">reply_fill</i>
+						<i class="icon material-icons md-only">reply_all</i> 
+						<small class="ml-1">Reply All</small>
+					</a>
+					<a href="#" class="col button button-outline">
+						<i class="icon f7-icons ios-only">forward</i>
+						<i class="icon material-icons md-only">forward</i> 
+						<small class="ml-1">Forward</small>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+
+<script>
+ return {
+	data: function() {
+		return {
+			emails: [
+				{id: 63, name: 'Daniel Westfall', avatar: 63, subject: 'How to solve this issue?', status: 1, time: '34 mins'},
+				{id: 64, name: 'Corey Schall', avatar: 64, subject: 'FW: PHP Question', status: 0, time: '1 hour'},
+				{id: 65, name: 'Edward Bukowski', avatar: 65, subject: 'Some Reminders to Prepare', status: 1, time: '3 hours'},
+				{id: 66, name: 'Victor Blade', avatar: 66, subject: 'DFA Passport Appointment Confirmation', status: 1, time: '2 days'},
+				{id: 67, name: 'Chong Stilwell', avatar: 67, subject: 'ORTC Realtime.Co Free account', status: 0, time: '3 days'},
+				{id: 68, name: 'Curtis Yerkes', avatar: 68, subject: 'Alienware Public IP Address', status: 0, time: '5 days'},
+				{id: 69, name: 'Billie Vanhoose', avatar: 69, subject: 'Activate your new account', status: 0, time: '1 week'},
+				{id: 70, name: 'Brett Drewry', avatar: 70, subject: 'Urgent need of a suitable candidate', status: 1, time: '2 weeks'},
+				{id: 71, name: 'Ben Hempel', avatar: 71, subject: 'Generating templates', status: 0, time: '1 month'},
+				{id: 72, name: 'Guillermo Birchard', avatar: 72, subject: 'Need help with Python', status: 0, time: '3 months'},
+				{id: 73, name: 'Michel Mohr', avatar: 73, subject: 'Developer needed', status: 0, time: '5 months'},
+				{id: 74, name: 'Quincy Sheley', avatar: 74, subject: 'Help solving code', status: 0, time: '1 year'},
+				{id: 75, name: 'Levi Starrett', avatar: 75, subject: 'Hey buddy', status: 0, time: '2 years'},
+				{id: 76, name: 'Gayle Forman', avatar: 76, subject: 'Congratulation, youve been selected', status: 0, time: '3 years'},
+			]
+		}
+	}, 
+	methods: {
+		openConfirm: function () {
+			var app = this.$app;
+			app.dialog.confirm('Delete this conversation?', 'Confirmation', function () {
+				app.dialog.preloader('Deleting...');
+				setTimeout(function () {
+					app.dialog.close();
+				}, 3000);
+			});
+		},
+		getData: function (key) {
+			var self = this;
+			var id = self.$route.params.itemId;
+			var email = self.emails.find( function(item) { return item.id == id } );
+			console.log(email);
+			return email ? email[key] : false;
+		}
+		
+		
+	}
+}
+</script>

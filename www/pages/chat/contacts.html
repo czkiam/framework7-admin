@@ -1,0 +1,57 @@
+<template>	
+	<div class="page">
+		<div class="page-content">
+			<div class="block-title">Contacts</div>
+			<div class="list media-list chevron-center">
+				<ul>
+					{{#each contacts}}
+					<li>
+						<a href="#" class="item-link item-content">
+							<div class="item-media">
+								<img src="https://randomuser.me/api/portraits/men/{{this.avatar}}.jpg" class="rounded-circle" width="45">
+							</div>
+							<div class="item-inner">
+								<div class="item-title-row">
+									<div class="item-title">{{this.name}}</div>
+									<div class="item-after">{{this.time}}</div>
+								</div>
+								<div class="item-text">{{this.number}}</div>
+							</div>
+						</a>
+					</li>
+					{{/each}}
+				</ul>
+			</div>
+		</div>
+		<div class="fab fab-right-bottom">
+			<a href="#">
+				<i class="icon material-icons">search</i>
+			</a>
+		</div>
+	</div>
+</template>
+
+<script>
+    return {
+		data: function() {
+			return {
+				contacts: [
+					{id: 63, name: 'Daniel Westfall', number: '+1 212-855-2885', avatar: 63},
+					{id: 64, name: 'Corey Schall', number: '+1 756-855-7954', avatar: 64},
+					{id: 65, name: 'Edward Bukowski', number: '+1 254-39-2396', avatar: 65},
+					{id: 66, name: 'Victor Blade', number: '+1 864-855-8944', avatar: 66},
+					{id: 67, name: 'Chong Stilwell', number: '+1 946-855-6693', avatar: 67},
+					{id: 68, name: 'Curtis Yerkes', number: '+1 154-855-7954', avatar: 68},
+					{id: 69, name: 'Billie Vanhoose', number: '+1 878-855-4855', avatar: 69},
+					{id: 70, name: 'Brett Drewry', number: '+1 237-784-5795', avatar: 70},
+					{id: 71, name: 'Ben Hempel', number: '+1 945-855-7954', avatar: 71},
+					{id: 72, name: 'Guillermo Birchard', number: '+ 1 466-463-7835', avatar: 72},
+					{id: 73, name: 'Michel Mohr', number: '+1 224-855-7954', avatar: 73},
+					{id: 74, name: 'Quincy Sheley', number: '+1 112-855-3488', avatar: 74},
+					{id: 75, name: 'Levi Starrett', number: '+1 428-855-9754', avatar: 75},
+					{id: 76, name: 'Gayle Forman', number: '+1 956-855-7954', avatar: 76},
+				]
+			}
+		}
+	}
+</script>

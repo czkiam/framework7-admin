@@ -1,0 +1,51 @@
+<template>	
+	<div class="page">
+		<div class="page-content">
+			<div class="block-title">Settings</div>
+			<div class="list media-list">
+				<ul>
+					{{#each settings}}
+						<li>
+							<div class="item-content">
+								<div class="item-inner">
+									<div class="item-title-row">
+										<div class="item-title">{{this.title}}</div>
+										<div class="item-after">
+											<label class="toggle toggle-init">
+												<input type="checkbox" {{#if status}}checked{{/if}}>
+												<span class="toggle-icon"></span>
+											</label>
+										</div>
+									</div>
+									<div class="item-text">{{this.subtitle}}</div>
+								</div>
+							</div>
+						</li>
+					{{/each}}
+				</ul>
+			</div>
+		</div>
+	</div>
+</template>
+
+<script>
+     return {
+		data: function() {
+			return {
+				settings: [
+					{title: 'System Notifications', subtitle: 'Show standard Android notifications', status: 1},
+					{title: 'Heads-up Notifications', subtitle: 'Receive Heads-up notifications for messages and incoming calls', status: 1},
+					{title: 'Bypass Lock Screen', subtitle: 'Allow incoming call to bypass the lock screen', status: 0},
+					{title: 'Notification Sound', subtitle: '', status: 1},
+					{title: 'Vibrate on new message', subtitle: '', status: 1},
+					{title: 'Wake Screen', subtitle: 'Wake my device when a new message is received', status: 0},
+					{title: 'Vibrate when ringing', subtitle: '', status: 1},
+					{title: 'Show Frequently contacted', subtitle: 'List you most frequent contacts on the Favorite tab', status: 1},
+					{title: 'Allow incoming calls', subtitle: '', status: 1},
+					{title: 'Show invite prompts', subtitle: '', status: 1},
+					{title: 'Convert text to emoji', subtitle: '', status: 1},
+				]
+			}
+		}
+	}
+</script>

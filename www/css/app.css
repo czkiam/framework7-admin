@@ -1,0 +1,60 @@
+/* Your app styles here */
+
+/* Left Panel right border when it is visible by breakpoint */
+.panel-left.panel-visible-by-breakpoint:before { position: absolute; right: 0; top: 0; height: 100%; width: 1px; background: rgba(0,0,0,0.1); content: ''; z-index: 6000; }
+/* Hide navbar link which opens left panel when it is visible by breakpoint */
+.panel-left.panel-visible-by-breakpoint ~ .view .navbar .panel-open[data-panel="left"] { display: none; }
+/* Extra borders for main view and left panel for iOS theme when it behaves as panel (before breakpoint size) */
+.ios .panel-left:not(.panel-visible-by-breakpoint).panel-active ~ .view-main:before, .ios .panel-left:not(.panel-visible-by-breakpoint).panel-closing ~ .view-main:before { position: absolute; left: 0; top: 0; height: 100%; width: 1px; background: rgba(0,0,0,0.1); content: ''; z-index: 6000; }
+
+
+
+/* Utilities */
+.f-12 { font-size: 12px; }
+.f-13 { font-size: 13px; }
+.f-14 { font-size: 14px; }
+.f-16 { font-size: 16px; }
+.f-inherit { font-size: 16px; }
+
+.display-1 { font-size: 6rem; }
+.display-2 { font-size: 5.5rem; }
+.display-3 { font-size: 4.5rem; }
+.display-4 { font-size: 3.5rem; }
+.display-1, .display-2, .display-3, .display-4 { font-weight: 300; line-height: 1.2; }
+
+.h1 { font-size: 2rem; }
+.h2 { font-size: 1.5rem; }
+.h3 { font-size: 1.17rem; }
+.h4 { font-size: 1.12rem; }
+.h5 { font-size: .83rem; }
+.h6 { font-size: .75rem; }
+
+.zindex_plus { z-index: 99; }
+.zindex_minus { z-index: -99; }
+.box-shadow-0 { -webkit-box-shadow: none !important; -moz-box-shadow: none !important; box-shadow: none !important; }
+
+.md .theme-light .page-gray { background-color: #efeff4; }
+
+.links-short a { font-size: 15px; }
+
+@media only screen and (max-width: 1200px) {
+	
+}
+
+@media only screen and (max-width: 992px) {
+	
+}
+
+@media only screen and (max-width: 768px) {
+	.f-sm-12 { font-size: 12px; }
+	.f-sm-13 { font-size: 13px; }
+	.f-sm-14 { font-size: 14px; }
+	.f-sm-16 { font-size: 16px; }
+	
+}
+
+@media only screen and (max-width: 480px) {
+	.mw-150 { max-width: 150px; }
+	.mw-200 { max-width: 200px; }
+	
+}

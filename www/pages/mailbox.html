@@ -1,0 +1,97 @@
+<template>	
+	<div class="page" data-name="mailbox">
+		<div class="navbar">
+			<div class="navbar-inner sliding">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only">Back</span>
+					</a>
+				</div>
+				<div class="title">Mailbox</div>
+				<div class="right">
+					<!-- Link to enable searchbar -->
+					<a class="link icon-only searchbar-enable" data-searchbar=".searchbar-demo">
+						<i class="icon f7-icons ios-only">search</i>
+						<i class="icon material-icons md-only">search</i>
+					</a>
+				</div>
+				<!-- Searchbar is a direct child of "navbar-inner" -->
+				<form data-search-container=".search-list" class="searchbar searchbar-expandable searchbar-demo searchbar-init">
+					<div class="searchbar-inner">
+						<div class="searchbar-input-wrap">
+							<input type="search" placeholder="Search" />
+							<i class="searchbar-icon"></i>
+							<span class="input-clear-button"></span>
+						</div>
+						<span class="searchbar-disable-button">Cancel</span>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="page-content">
+			<div class="block-title">Primary MailBox</div>
+			<div class="list media-list chevron-center">
+				<ul>
+					{{#each emails}}
+					<li>
+						<a href="/mailbox-single/{{this.id}}/" class="item-link item-content">
+							<div class="item-media"><img src="https://randomuser.me/api/portraits/men/{{this.avatar}}.jpg" class="rounded-circle" class="rounded-circle" width="88" /></div>
+							<div class="item-inner">
+								<div class="item-title-row">
+									<div class="item-title {{#if status}}font-weight-bold{{/if}}">{{this.subject}}</div>
+									<div class="item-after {{#if status}}text-color-blue font-weight-bold{{/if}}">{{this.time}}</div>
+								</div>
+								<div class="item-subtitle {{#if status}}font-weight-bold{{/if}}">{{this.name}}</div>
+								<div class="item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis tellus ut turpis condimentum, ut dignissim lacus tincidunt. Cras dolor metus, ultrices condimentum sodales sit amet, pharetra sodales eros. Phasellus vel felis tellus. Mauris rutrum ligula nec dapibus feugiat. In vel dui laoreet, commodo augue id, pulvinar lacus.</div>
+							</div>
+						</a>
+					</li>
+					{{/each}}
+				</ul>
+			</div>
+		</div>
+		
+		<div class="fab fab-right-bottom">
+			<a href="#">
+				<i class="icon material-icons md-only">add</i>
+				<i class="icon material-icons md-only">close</i>
+			</a>
+			<div class="fab-buttons fab-buttons-top">
+				<a href="#" class="fab-label-button">
+					<span>1</span>
+					<span class="fab-label">New Email</span>
+				</a>
+				<a href="#" class="fab-label-button">
+					<span>2</span>
+					<span class="fab-label">New Folder</span>
+				</a>
+			</div>
+		</div>
+	</div>
+</template>
+
+<script>
+     return {
+		data: function() {
+			return {
+				emails: [
+					{id: 63, name: 'Daniel Westfall', avatar: 63, subject: 'How to solve this issue?', status: 1, time: '34 mins'},
+					{id: 64, name: 'Corey Schall', avatar: 64, subject: 'FW: PHP Question', status: 0, time: '1 hour'},
+					{id: 65, name: 'Edward Bukowski', avatar: 65, subject: 'Some Reminders to Prepare', status: 1, time: '3 hours'},
+					{id: 66, name: 'Victor Blade', avatar: 66, subject: 'DFA Passport Appointment Confirmation', status: 1, time: '2 days'},
+					{id: 67, name: 'Chong Stilwell', avatar: 67, subject: 'ORTC Realtime.Co Free account', status: 0, time: '3 days'},
+					{id: 68, name: 'Curtis Yerkes', avatar: 68, subject: 'Alienware Public IP Address', status: 0, time: '5 days'},
+					{id: 69, name: 'Billie Vanhoose', avatar: 69, subject: 'Activate your new account', status: 0, time: '1 week'},
+					{id: 70, name: 'Brett Drewry', avatar: 70, subject: 'Urgent need of a suitable candidate', status: 1, time: '2 weeks'},
+					{id: 71, name: 'Ben Hempel', avatar: 71, subject: 'Generating templates', status: 0, time: '1 month'},
+					{id: 72, name: 'Guillermo Birchard', avatar: 72, subject: 'Need help with Python', status: 0, time: '3 months'},
+					{id: 73, name: 'Michel Mohr', avatar: 73, subject: 'Developer needed', status: 0, time: '5 months'},
+					{id: 74, name: 'Quincy Sheley', avatar: 74, subject: 'Help solving code', status: 0, time: '1 year'},
+					{id: 75, name: 'Levi Starrett', avatar: 75, subject: 'Hey buddy', status: 0, time: '2 years'},
+					{id: 76, name: 'Gayle Forman', avatar: 76, subject: 'Congratulation, youve been selected', status: 0, time: '3 years'},
+				]
+			}
+		}
+	}
+</script>

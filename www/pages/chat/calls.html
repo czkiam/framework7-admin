@@ -1,0 +1,138 @@
+<template>	
+	<div class="page">
+		<div class="page-content">
+			<p class="segmented segmented-round px-3 pt-2">
+				<a href="#all" class="tab-link tab-link-active button button-round button-outline">All Calls</a>
+				<a href="#missed" class="tab-link button button-round button-outline">Missed</a>
+				<a href="#voicemail" class="tab-link button button-round button-outline">Voicemail</a>
+			</p>
+			<div class="tabs">
+				<div id="all" class="tab tab-active">
+					<div class="list media-list no-chevron">
+						<ul>
+							{{#each calls}}
+								<li>
+									<div class="item-content">
+										<a href="" class="link item-media float-left">
+											<img src="https://randomuser.me/api/portraits/men/{{this.avatar}}.jpg" width="50" class="rounded-circle" />
+										</a>
+										<div class="item-link ml-0 pl-3 item-inner">
+                                            <a href="#">
+    											<div class="item-title-row">
+    												<div class="item-title">{{this.number}}</div>
+    											</div>
+    											<div class="item-subtitle font-weight-bold">
+    												{{#if missed}}
+    													<span class="text-color-red ">Missed Call</span>
+    												{{else}}
+    													<span class="text-color-green">Outgoing Call</span>
+    												{{/if}}
+    											</div>
+                                                <div class="item-text">{{this.time}} | {{this.location}}</div>
+                                            </a>
+										</div>
+										<a href="" class="item-link p-4">
+											<i class="icon material-icons">call</i>
+										</a>
+									</div>
+								</li>
+							{{/each}}
+						</ul>
+					</div>
+				</div>
+				<div id="missed" class="tab">
+					<div class="list media-list no-chevron">
+						<ul>
+							{{#each calls}}
+								{{#if missed}}
+									<li>
+										<div class="item-content">
+											<a href="" class="link item-media float-left">
+												<img src="https://randomuser.me/api/portraits/men/{{this.avatar}}.jpg" width="50" class="rounded-circle" />
+											</a>
+											<div class="item-link ml-0 pl-3 item-inner">
+												<a href="#">
+                                                    <div class="item-title-row">
+    													<div class="item-title">{{this.number}}</div>
+    												</div>
+    												<div class="item-subtitle font-weight-bold">
+    													<span class="text-color-red ">Missed Call</span>
+    												</div>
+                                                    <div class="item-text">{{this.time}} | {{this.location}}</div>
+                                                </a>
+											</div>
+											<a href="" class="item-link p-4">
+												<i class="icon material-icons">call</i>
+											</a>
+										</div>
+									</li>
+								{{/if}}
+							{{/each}}
+						</ul>
+					</div>
+				</div>
+				<div id="voicemail" class="tab">
+					<div class="list media-list no-chevron">
+						<ul>
+							{{#each calls}}
+								{{#if voicemail}}
+									<li>
+										<div class="item-content">
+											<a href="" class="link item-media float-left">
+												<img src="https://randomuser.me/api/portraits/men/{{this.avatar}}.jpg" width="50" class="rounded-circle" />
+											</a>
+											<div class="item-link ml-0 pl-3 item-inner">
+                                                <a href="#">
+    												<div class="item-title-row">
+    													<div class="item-title">{{this.number}}</div>
+    												</div>
+    												<div class="item-subtitle font-weight-bold">
+    													<span class="text-color-green">Outgoing Call</span>
+    												</div>
+                                                    <div class="item-text">{{this.time}} | {{this.location}}</div>
+    											</a>
+                                            </div>
+											<a href="" class="item-link p-4">
+												<i class="icon material-icons">call</i>
+											</a>
+										</div>
+									</li>
+								{{/if}}
+							{{/each}}
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="fab fab-right-bottom">
+			<a href="#">
+				<i class="icon material-icons">dialpad</i>
+			</a>
+		</div>
+	</div>
+</template>
+
+<script>
+	return {
+		data: function() {
+			return {
+				calls: [
+					{id: 63, name: 'Daniel Westfall', number: '+1 212-855-2885', avatar: 63, voicemail: 1, missed: 0, time: 'Monday', location: 'United States'},
+					{id: 64, name: 'Corey Schall', number: '+1 756-855-7954', avatar: 64, voicemail: 0, missed: 1, time: 'Theusday', location: 'United States'},
+					{id: 65, name: 'Edward Bukowski', number: '+1 254-39-2396', avatar: 65, voicemail: 1, missed: 0, time: 'Thursday', location: 'United States'},
+					{id: 66, name: 'Victor Blade', number: '+1 864-855-8944', avatar: 66, voicemail: 1, missed: 1, time: '10/13/2018', location: 'United States'},
+					{id: 67, name: 'Chong Stilwell', number: '+1 946-855-6693', avatar: 67, voicemail: 0, missed: 0, time: '09/11/2018', location: 'United States'},
+					{id: 68, name: 'Curtis Yerkes', number: '+1 154-855-7954', avatar: 68, voicemail: 0, missed: 0, time: '08/03/2018', location: 'United States'},
+					{id: 69, name: 'Billie Vanhoose', number: '+1 878-855-4855', avatar: 69, voicemail: 0, missed: 0, time: '07/07/2018', location: 'United States'},
+					{id: 70, name: 'Brett Drewry', number: '+1 237-784-5795', avatar: 70, voicemail: 1, missed: 1, time: '07/02/2018', location: 'United States'},
+					{id: 71, name: 'Ben Hempel', number: '+1 945-855-7954', avatar: 71, voicemail: 0, missed: 0, time: '06/16/2018', location: 'United States'},
+					{id: 72, name: 'Guillermo Birchard', number: '+ 1 466-463-7835', avatar: 72, voicemail: 0, missed: 1, time: '05/21/2018', location: 'United States'},
+					{id: 73, name: 'Michel Mohr', number: '+1 224-855-7954', avatar: 73, voicemail: 0, missed: 1, time: '05/20/2018', location: 'United States'},
+					{id: 74, name: 'Quincy Sheley', number: '+1 112-855-3488', avatar: 74, voicemail: 0, missed: 1, time: '05/18/2018', location: 'United States'},
+					{id: 75, name: 'Levi Starrett', number: '+1 428-855-9754', avatar: 75, voicemail: 0, missed: 0, time: '04/17/2018', location: 'United States'},
+					{id: 76, name: 'Gayle Forman', number: '+1 956-855-7954', avatar: 76, voicemail: 0, missed: 1, time: '03/25/2018', location: 'United States'},
+				]
+			}
+		}
+	}
+</script>

@@ -1,0 +1,183 @@
+<template>	
+	<div class="page" data-name="product">
+		<div class="navbar">
+			<div class="navbar-inner sliding">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only">Back</span>
+					</a>
+				</div>
+				<div class="right">
+					<a href="#" class="link icon-only">
+						<i class="icon f7-icons ios-only">heart</i>
+						<i class="icon material-icons md-only">favorite_border</i>
+					</a>
+					<a href="#" class="link icon-only" @click="refreshPage">
+						<i class="icon f7-icons ios-only">refresh</i>
+						<i class="icon material-icons md-only">cached</i>
+					</a>
+				</div>
+			</div>
+		</div>
+		{{#if item.itemId}}
+			<div class="page-content">
+				<div class="row">
+					<div class="desktop-40 col-100">
+						<div class="p-2">
+							{{#if item.imageEntities}}
+								<div data-pagination='{"el": ".swiper-pagination"}' data-zoom='{"enabled": true}' data-lazy='{"enabled": true}' data-navigation='{"nextEl": ".swiper-button-next", "prevEl": ".swiper-button-prev"}' class="swiper-container swiper-init">
+									<div class="swiper-wrapper">
+										{{#each item.imageEntities}}	
+											<div class="swiper-slide" @click="openPhotoBrowser({{@index}})">
+												<div class="swiper-zoom-container">
+													<a href="#"><img data-src="{{this.largeImage}}" class="swiper-lazy" width="100%" /></a>
+													<div class="preloader swiper-lazy-preloader" style="margin-top: 33%"></div>
+												</div>
+											</div>
+										{{/each}}
+									</div>
+									<div class="swiper-button-next"></div>
+									<div class="swiper-button-prev"></div>
+									<div class="swiper-pagination"></div>
+								</div>
+							{{else}}
+								<p class="text-center">No Photos Available</p>
+							{{/if}}
+							<div class="mt-xl-5 mt-3 row">
+								<button class="col-100 desktop-50 button button-big button-fill mb-1">Buy Now</button>
+								<button class="col-100 desktop-50 button button-big button-fill color-orange">Add To Cart</button>
+							</div>
+						</div>
+					</div>
+					<div class="desktop-60 col-100">
+						<div class="p-2">
+							<h1>{{item.name}}</h1>
+							<h2 class="text-success">${{item.salePrice}}</h2>
+							<div>{{item.longDescription}}</div>
+							
+							<div class="data-table mt-5">
+								<table>
+									<tbody>
+										<tr>
+											<td class="label-cell">Ratings</td>
+											<td>{{item.customerRating}} / 5.0</td>
+										</tr>
+										<tr>
+											<td class="label-cell">Category</td>
+											<td>{{item.categoryPath}}</td>
+										</tr>
+										<tr>
+											<td class="label-cell">Brand</td>
+											<td>{{item.brandName}}</td>
+										</tr>
+										<tr>
+											<td class="label-cell">Color</td>
+											<td>{{item.color}}</td>
+										</tr>
+										<tr>
+											<td class="label-cell">Model Number</td>
+											<td>{{item.modelNumber}}</td>
+										</tr>
+										<tr>
+											<td class="label-cell">Stock</td>
+											<td>{{item.stock}}</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		{{/if}}
+		
+		<div class="fab fab-right-bottom">
+			<a href="#">
+				<i class="icon f7-icons ios-only">share</i>
+				<i class="icon f7-icons ios-only">close</i>
+				<i class="icon material-icons md-only">share</i>
+				<i class="icon material-icons md-only">close</i>
+			</a>
+			<div class="fab-buttons fab-buttons-top">
+				<a href="" class="fab-label-button">
+					<span>1</span>
+					<span class="fab-label">Facebook</span>
+				</a>
+				<a href="" class="fab-label-button">
+					<span>2</span>
+					<span class="fab-label">Twiiter</span>
+				</a>
+				<a href="" class="fab-label-button">
+					<span>3</span>
+					<span class="fab-label">Linkedin</span>
+				</a>
+			</div>
+		</div>
+	</div>
+</template>
+
+<script>
+return {
+	data: function() {
+		return {
+			/* Initial state */
+			item: {
+				itemId: ""
+			}, 
+			photos: [],
+		}
+	},
+	on: {
+		pageInit: function () {
+			var self = this;
+			self.loadItem();
+		}
+	},
+	methods: {
+		loadItem: function() {
+			var self = this;
+			var $ = self.$$;
+			
+			app.request.post(app.data.walmartAPI, {id: self.$route.params.itemId, type: 'id'}, (response) => {
+				if(response) {
+					var response = JSON.parse(response);
+					
+					if(response.imageEntities){
+						response.imageEntities.forEach(function (item, index) {
+                            if(item.largeImage){
+				                self.photos.push(item.largeImage);
+                            }
+						});
+					}
+					
+					self.$setState({
+						item: response /* Display new item */
+					});
+					
+				} else {
+					/* Try again if we got an empty response */
+					self.loadItem();
+				}
+				
+			});
+		},
+		openPhotoBrowser: function (initialSlide) {
+			var self = this;
+			self.pageDark = self.$app.photoBrowser.create({
+				photos: self.photos,
+				type: 'standalone',
+				backLinkText: 'Back',
+				theme: 'dark',
+				swipeToClose: false
+			});
+			
+			self.pageDark.activeIndex = initialSlide;
+			self.pageDark.open();
+		},
+		refreshPage: function () {
+			var self = this;
+			self.loadItem();
+		}
+	},
+}

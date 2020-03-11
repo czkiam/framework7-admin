@@ -1,0 +1,215 @@
+<template>	
+	<div class="page page-gray" data-name="profile">
+		<div class="navbar">
+			<div class="navbar-inner sliding">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only">Back</span>
+					</a>
+				</div>
+				<div class="title">Profile</div>
+			</div>
+		</div>
+		<div class="page-content">
+			<div class="row no-gap mt-2">
+				<div class="desktop-70 col-100">
+					<div class="card elevation-4">
+						<div class="bg-color-blue text-color-white text-center">	
+							<div class="position-absolute p-3" style="right: 0; top: 0">
+								<a href="javascript:void(0)" class="text-white">
+									<i class="icon f7-icons ios-only mr-2">share</i>
+									<i class="icon f7-icons ios-only">more_vert</i>
+								</a>
+								<a href="javascript:void(0)" class="text-white">
+									<i class="icon material-icons md-only mr-2">share</i>
+									<i class="icon material-icons md-only">more_vert</i>
+								</a>
+							</div>
+							<img src="http://carlofontanos.com/wp-content/themes/carlo-fontanos/img/carlofontanos.jpg" width="150" class="elevation-10 rounded-circle zindex_plus m-3">
+							<div class="pb-4">
+								<h2 class="m-0">{{name}}</h2>
+								{{title}}
+							</div>
+						</div>						
+						<div class="card-content text-center">
+							<div class="toolbar tabbar">
+								<div class="toolbar-inner">
+								<a href="#tab-1" class="tab-link tab-link-active">Posts</a>
+								<a href="#tab-2" class="tab-link">Photos</a>
+								<a href="#tab-3" class="tab-link">About</a>
+								</div>
+							</div>
+							<div class="tabs-animated-wrap">
+								<div class="tabs">
+									<div id="tab-1" class="tab tab-active text-left">
+										<div class="list no-hairlines-md mt-3">
+											<ul>
+												<li class="item-content item-input">
+													<div class="item-inner">
+														<div class="item-title item-label">Make Post</div>
+														<div class="item-input-wrap">
+															<textarea placeholder="What's on your mind?"></textarea>
+														</div>
+													</div>
+												</li>
+											</ul>
+										</div>
+										
+										<div class="row mt-2">
+											<div class="col px-2">
+												<button class="button button-outline button-round">
+													<i class="icon f7-icons">images</i> 
+													Photo / Video
+												</button>
+											</div>
+											<div class="col px-2">
+												<button class="button button-outline button-round col">
+													<i class="icon f7-icons ios-only">persons</i>
+													<i class="icon material-icons md-only">person_outline</i>
+													Tag Friends
+												</button>
+											</div>
+											<div class="col px-2">
+												<button class="button button-outline button-round col">
+													<i class="icon material-icons">tag_faces</i>
+													Feeling / Activity
+												</button>
+											</div>
+										</div>
+  
+										<div class="block-title">Posts</div>
+										{{#each posts}}
+											<div class="card demo-facebook-card">
+												<div class="card-header">
+													<div class="demo-facebook-avatar"><img src="{{@root.avatar}}" class="lazy lazy-fade-in" width="34" height="34"></div>
+													<div class="demo-facebook-name">{{@root.name}}</div>
+													<div class="demo-facebook-date">{{this.date}}</div>
+												</div>
+												<div class="card-content card-content-padding">
+													<p>{{this.content}}</p>
+													<a href="#">
+														<img src="https://loremflickr.com/800/350/city?lock={{this.image}}" class="elevation-5 lazy lazy-fade-in" width="100%">
+													</a>
+													<p class="likes">Likes: {{this.likes}} &nbsp;&nbsp; Comments: {{this.comments}}</p>
+												</div>
+												<div class="card-footer"><a href="#" class="link">Like</a><a href="#" class="link">Comment</a><a href="#" class="link">Share</a></div>
+											</div>
+										{{/each}}
+									</div>
+									
+									
+									<div id="tab-2" class="tab text-left">
+										<div class="block-title">My Photos</div>
+										<div class="block block-strong row">
+											{{#each photos}}
+												<a href="#" @click="openPhotoBrowser({{@index}})" class="desktop-25 col-33 p-1">
+													<img src="https://loremflickr.com/200/200/city?lock={{this}}" class="lazy lazy-fade-in" width="100%">
+												</a>
+											{{/each}}
+										</div>
+									</div>
+									
+									
+									<div id="tab-3" class="tab text-left">
+										<div class="block-title">About Me</div>
+										<div class="block block-strong">
+											<p>I focus on providing my clients the best innovative solutions that helps increase revenue, accelerate customer acquisition and deliver industry-leading competitive advantage.</p>
+											<p>My five years of experience in the industry, along with my education have given me an overall knowledge of the business. I work with high-end enterprise projects in diverse industries including technology, manufacturing, pharmaceutical, hospitality, F&B, retail and financial services. I manage all aspects of application development, from concept to requirements definition, design, development, launch, maintenance and user support. I enjoy the client-facing role and working closely with team members to produce high-quality deliverables.</p>
+										</div>
+										<div class="block pt-3">
+											<p>Building state-of-the-art, easy to use, user-friendly applications is truly a passion of mine. My years of research and experience have given me the ability to come up with creative solutions that always make my clients happy.</p>
+											<p>In addition to my knowledge base, I actively seek out new technologies and stay up-to-date on industry trends and advancements. This has allowed me to stay ahead of the curve and deliver exceptional work to all of my clients.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="desktop-30 col-100">
+					<div class="card">
+						<div class="card-header font-weight-bold">
+							Friends 
+							<span class="badge color-green">1,264</span>
+						</div>
+						<div class="list media-list chevron-center">
+							<ul>
+								{{#each friends}}
+									<li>
+										<a href="#" class="item-link item-content">
+											<div class="item-media"><img src="https://randomuser.me/api/portraits/men/{{this.avatar}}.jpg" class="rounded-circle" width="50" /></div>
+											<div class="item-inner">
+												<div class="item-title-row">
+													<div class="item-title">{{this.name}}</div>
+												</div>
+												<div class="item-subtitle">{{this.location}}</div>
+											</div>
+										</a>
+									</li>
+								{{/each}}
+							</ul>
+						</div>
+						<a href="#" class="card-footer font-weight-bold">See All Friends</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+
+<style>
+	.demo-facebook-card .card-header { display: block; padding: 10px; } 
+	.demo-facebook-card .demo-facebook-avatar { float: left; } 
+	.demo-facebook-card .demo-facebook-name { margin-left: 44px; font-size: 14px; font-weight: 500; } 
+	.demo-facebook-card .demo-facebook-date { margin-left: 44px; font-size: 13px; color: #8e8e93; } 
+	.demo-facebook-card .card-content-padding { padding: 15px 10px; } 
+	.demo-facebook-card .card-content-padding .likes { color: #8e8e93; }
+</style>
+
+<script>
+ return {
+	data: function() {
+		return {
+			name: 'Carl Victor Fontanos',
+			title: 'Full Stack Developer',
+			avatar: 'http://carlofontanos.com/wp-content/themes/carlo-fontanos/img/carlofontanos.jpg', 
+			friends: [
+				{name: 'Jammie Black', avatar: 24, location: 'Texas, USA'},
+				{name: 'Shin Matsunaga', avatar: 25, location: 'Tokyo, Japan'},
+				{name: 'Blake Adamson', avatar: 26, location: 'Denver USA'},
+				{name: 'Martin Garcia', avatar: 27, location: 'London, UK'},
+				{name: 'Andrew White', avatar: 28, location: 'Manila, Philippines'},
+				{name: 'John Piersons', avatar: 29, location: 'Barcelona, Spain'}
+			],
+			posts: [
+				{image: 1, content: 'What a nice photo i took yesterday!', date: 'Tuesday at 12:49 PM', likes: 112, comments: 20},
+				{image: 2, content: '12 midnight photography', date: 'Tuesday at 12:49 PM', likes: 6, comments: 1},
+				{image: 5, content: 'Amazing view from Prince Plaza Hotel!', date: 'Wednesday at 8:01 PM', likes: 485, comments: 12}
+			],
+			photos: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36],
+		}
+	},
+	methods: {
+		openPhotoBrowser: function (initialSlide) {
+			var self = this;
+			var photos_array = [];
+			
+			self.photos.forEach(function( value, index) {
+				photos_array.push("https://loremflickr.com/600/600/city?lock=" + value);
+			});
+			
+			self.pageDark = self.$app.photoBrowser.create({
+				photos: photos_array,
+				type: 'standalone',
+				backLinkText: 'Back',
+				theme: 'dark',
+				swipeToClose: false
+			});
+			
+			self.pageDark.activeIndex = initialSlide;
+			self.pageDark.open();
+		},
+	},
+}
+</script>

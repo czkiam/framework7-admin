@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <!--
+  Customize this policy to fit your own app's needs. For more guidance, see:
+      https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+  Some notes:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+      * Enable inline JS: add 'unsafe-inline' to default-src
+  -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap: content:"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover"
+    />
+
+    <meta name="theme-color" content="#2196f3" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <title>Admin Dashboard</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png" />
+    <link rel="icon" href="assets/icons/favicon.png" />
+
+    <link rel="stylesheet" href="css/framework7.min.css" />
+    <link rel="stylesheet" href="css/bootstrap-utilities.css" />
+    <link rel="stylesheet" href="css/icons.css" />
+    <link rel="stylesheet" href="css/app.css" />
+  </head>
+  <body>
+    <div id="app">
+      <!-- Status bar overlay for fullscreen mode-->
+      <div class="statusbar"></div>
+
+      <div
+        class="panel panel-left panel-cover panel-init"
+        data-visible-breakpoint="960"
+      >
+        <div class="view view-left">
+          <div class="page">
+            <div class="navbar">
+              <div class="navbar-inner sliding">
+                <a href="/" class="title" data-view=".view-main">
+                  Administrator
+                </a>
+              </div>
+            </div>
+            <div class="page-content">
+              <div class="block-title">Main Navigation</div>
+              <div class="list">
+                <ul>
+                  <li>
+                    <a
+                      href="/"
+                      data-view=".view-main"
+                      class="item-link item-content panel-close"
+                    >
+                      <div class="item-media">
+                        <i class="icon f7-icons ios-only">data</i>
+                        <i class="icon material-icons md-only">dashboard</i>
+                      </div>
+                      <div class="item-inner">
+                        <div class="item-title">Dashboard</div>
+                        <div class="item-after"></div>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/widgets/"
+                      data-view=".view-main"
+                      class="item-link item-content panel-close"
+                    >
+                      <div class="item-media">
+                        <i class="icon f7-icons ios-only">drawers</i>
+                        <i class="icon material-icons md-only">widgets</i>
+                      </div>
+                      <div class="item-inner">
+                        <div class="item-title">Widgets</div>
+                        <div class="item-after"></div>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/mailbox/"
+                      data-view=".view-main"
+                      class="item-link item-content panel-close"
+                    >
+                      <div class="item-media">
+                        <i class="icon f7-icons ios-only">email</i>
+                        <i class="icon material-icons md-only">email</i>
+                      </div>
+                      <div class="item-inner">
+                        <div class="item-title">Mailbox</div>
+                        <div class="item-after"></div>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/chat/"
+                      data-view=".view-main"
+                      class="item-link item-content panel-close"
+                    >
+                      <div class="item-media">
+                        <i class="icon f7-icons ios-only">chats</i>
+                        <i class="icon material-icons md-only">chat</i>
+                      </div>
+                      <div class="item-inner">
+                        <div class="item-title">Chat App</div>
+                        <div class="item-after"></div>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/profile/"
+                      data-view=".view-main"
+                      class="item-link item-content panel-close"
+                    >
+                      <div class="item-media">
+                        <i class="icon f7-icons ios-only">person</i>
+                        <i class="icon material-icons md-only">person</i>
+                      </div>
+                      <div class="item-inner">
+                        <div class="item-title">Profile</div>
+                        <div class="item-after"></div>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/ecommerce/"
+                      data-view=".view-main"
+                      class="item-link item-content panel-close"
+                    >
+                      <div class="item-media">
+                        <i class="icon f7-icons ios-only">box</i>
+                        <i class="icon material-icons md-only">shopping_cart</i>
+                      </div>
+                      <div class="item-inner">
+                        <div class="item-title">Ecommerce</div>
+                        <div class="item-after"></div>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/page/"
+                      data-view=".view-main"
+                      class="item-link item-content panel-close"
+                    >
+                      <div class="item-media">
+                        <i class="icon f7-icons ios-only">document</i>
+                        <i class="icon material-icons md-only"
+                          >format_align_left</i
+                        >
+                      </div>
+                      <div class="item-inner">
+                        <div class="item-title">Page</div>
+                        <div class="item-after"></div>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="accordion-item">
+                    <a href="#" class="item-content item-link">
+                      <div class="item-media">
+                        <i class="icon material-icons">filter_7</i>
+                      </div>
+                      <div class="item-inner">
+                        <div class="item-title">Dropdown</div>
+                        <div class="item-after"></div>
+                      </div>
+                    </a>
+                    <div class="accordion-item-content">
+                      <div class="block">
+                        <p>
+                          Lorem ipsum dolor sit amet, ad sem velit erat quam
+                          tincidunt nibh, convallis amet iaculis blandit donec
+                          sit. Class eu facilisis arcu ad, ornare vulputate,
+                          nulla ipsum tincidunt nec dui elit, vel arcu erat
+                          tristique. Ac ut vestibulum, congue donec magna elit
+                          et neque, sociis sed cursus. Tincidunt semper interdum
+                          eget tincidunt conubia, elit consectetuer justo, sit
+                          consequat, urna consectetuer ad eros a turpis, dapibus
+                          risus felis eleifend odio posuere accumsan.
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="block-title">Customization</div>
+              <div class="list">
+                <ul>
+                  <li>
+                    <a href="/left-page-1/" class="item-link item-content">
+                      <div class="item-media">
+                        <i class="icon f7-icons ios-only">gear</i>
+                        <i class="icon material-icons md-only">color_lens</i>
+                      </div>
+                      <div class="item-inner">
+                        <div class="item-title">Color Themes</div>
+                        <div class="item-after"></div>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      data-view=".view-main"
+                      class="item-link item-content change-device-theme panel-close"
+                      device="ios"
+                    >
+                      <div class="item-media">
+                        <i class="icon material-icons">phone_iphone</i>
+                      </div>
+                      <div class="item-inner">
+                        <div class="item-title">iOS Theme</div>
+                        <div class="item-after"></div>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      data-view=".view-main"
+                      class="item-link item-content change-device-theme panel-close"
+                      device="md"
+                    >
+                      <div class="item-media">
+                        <i class="icon material-icons">android</i>
+                      </div>
+                      <div class="item-inner">
+                        <div class="item-title">Material (MD) Theme</div>
+                        <div class="item-after"></div>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right panel with reveal effect-->
+      <div class="panel panel-right panel-reveal theme-dark">
+        <div class="view">
+          <div class="page">
+            <div class="navbar">
+              <div class="navbar-bg"></div>
+              <div class="navbar-inner">
+                <div class="title">Right Panel</div>
+              </div>
+            </div>
+            <div class="page-content">
+              <div class="block">Right panel content goes here</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Your main view, should have "view-main" class -->
+      <div class="view view-main ios-edges"></div>
+    </div>
+
+    <!-- Framework7 library -->
+    <script src="js/framework7.min.js"></script>
+    <!-- App Helper Functions -->
+    <script src="js/helpers.js"></script>
+    <!-- App routes -->
+    <script src="js/routes.js"></script>
+    <!-- App scripts -->
+    <script src="js/app.js"></script>
+  </body>
+</html>

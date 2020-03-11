@@ -1,0 +1,52 @@
+<template>	
+	<div class="page">
+		<div class="page-content">
+			<div class="block-title">Messages</div>
+			<div class="list media-list">
+				<ul>
+					{{#each messages}}
+						<li>
+							<a href="/messages-single/{{this.id}}/" class="item-link item-content">
+								<div class="item-media">
+									<img src="https://randomuser.me/api/portraits/men/{{this.avatar}}.jpg" class="rounded-circle" width="45">
+								</div>
+								<div class="item-inner">
+									<div class="item-title-row">
+										<div class="item-title {{#if status}}font-weight-bold{{/if}}">{{this.name}}</div>
+										<div class="item-after {{#if status}}text-color-blue font-weight-bold{{/if}}">{{this.time}}</div>
+									</div>
+									<div class="item-text">{{this.message}}</div>
+								</div>
+							</a>
+						</li>
+					{{/each}}
+				</ul>
+			</div>
+		</div>
+	</div>
+</template>
+
+<script>
+     return {
+		data: function() {
+			return {
+				messages: [
+					{id: 63, name: 'Daniel Westfall', avatar: 63, message: 'How to solve this issue?', status: 1, time: '34 mins'},
+					{id: 64, name: 'Corey Schall', avatar: 64, message: 'FW: PHP Question', status: 0, time: '1 hour'},
+					{id: 65, name: 'Edward Bukowski', avatar: 65, message: 'Some Reminders to Prepare', status: 1, time: '3 hours'},
+					{id: 66, name: 'Victor Blade', avatar: 66, message: 'DFA Passport Appointment Confirmation', status: 1, time: '2 days'},
+					{id: 67, name: 'Chong Stilwell', avatar: 67, message: 'ORTC Realtime.Co Free account', status: 0, time: '3 days'},
+					{id: 68, name: 'Curtis Yerkes', avatar: 68, message: 'Alienware Public IP Address', status: 0, time: '5 days'},
+					{id: 69, name: 'Billie Vanhoose', avatar: 69, message: 'Activate your new account', status: 0, time: '1 week'},
+					{id: 70, name: 'Brett Drewry', avatar: 70, message: 'Urgent need of a suitable candidate', status: 1, time: '2 weeks'},
+					{id: 71, name: 'Ben Hempel', avatar: 71, message: 'Generating templates', status: 0, time: '1 month'},
+					{id: 72, name: 'Guillermo Birchard', avatar: 72, message: 'Need help with Python', status: 0, time: '3 months'},
+					{id: 73, name: 'Michel Mohr', avatar: 73, message: 'Developer needed', status: 0, time: '5 months'},
+					{id: 74, name: 'Quincy Sheley', avatar: 74, message: 'Help solving code', status: 0, time: '1 year'},
+					{id: 75, name: 'Levi Starrett', avatar: 75, message: 'Hey buddy', status: 0, time: '2 years'},
+					{id: 76, name: 'Gayle Forman', avatar: 76, message: 'Congratulation, youve been selected', status: 0, time: '3 years'},
+				]
+			}
+		}
+	}
+</script>
